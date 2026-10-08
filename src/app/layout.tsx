@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./interactions.css";
+import "./portfolio-experiences.css";
 const title = "Anurag Kumar Srivastava | Python & GenAI Developer";
 const description =
   "Portfolio of Anurag Kumar Srivastava — Python & GenAI Developer focused on AI agents, RAG, backend development and data engineering.";

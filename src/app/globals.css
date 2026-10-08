@@ -1138,6 +1138,117 @@ a {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   column-gap: 72px;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.hero-visual-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.14) 32%, #000 58%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.14) 32%, #000 58%, #000 100%);
+}
+.hero-visual-atmosphere:before {
+  content: "";
+  position: absolute;
+  width: min(720px, 62vw);
+  aspect-ratio: 1;
+  right: -8%;
+  top: -18%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent) 0%, color-mix(in srgb, var(--accent) 7%, transparent) 34%, transparent 70%);
+  animation: hero-glow-breathe 7s ease-in-out infinite;
+}
+.hero-monogram {
+  position: absolute;
+  top: 47%;
+  right: 0;
+  transform: translate(3%, -50%);
+  font-size: clamp(180px, 24vw, 350px);
+  font-weight: 750;
+  line-height: 0.75;
+  letter-spacing: -0.13em;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 32%, transparent);
+  opacity: 0.74;
+  white-space: nowrap;
+  animation: hero-monogram-float 9s ease-in-out infinite;
+}
+.hero-flow-field {
+  position: absolute;
+  inset: -4% -2% -3% 21%;
+  width: 83%;
+  height: 107%;
+  overflow: visible;
+  opacity: 0.88;
+}
+.hero-flow-path {
+  fill: none;
+  stroke: color-mix(in srgb, var(--accent) 52%, transparent);
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 4 13 34 18;
+  animation: hero-flow-dash 13s linear infinite;
+}
+.hero-flow-path:nth-of-type(2) {
+  opacity: 0.68;
+  stroke-dasharray: 2 18 48 22;
+  animation-duration: 17s;
+  animation-direction: reverse;
+}
+.hero-flow-path:nth-of-type(3) {
+  opacity: 0.76;
+  stroke-dasharray: 28 16 5 18;
+  animation-duration: 15s;
+}
+.hero-flow-path:nth-of-type(4) {
+  opacity: 0.56;
+  stroke-dasharray: 3 22 40 28;
+  animation-duration: 19s;
+  animation-direction: reverse;
+}
+.hero-flow-path:nth-of-type(5) {
+  opacity: 0.5;
+  stroke-dasharray: 18 24 2 18;
+  animation-duration: 16s;
+}
+.hero-flow-particle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 7px var(--accent));
+}
+.hero-flow-particle-small {
+  opacity: 0.72;
+}
+.hero-accent-disc {
+  position: absolute;
+  right: 2.5%;
+  bottom: 15%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--accent) 75%, transparent);
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent) 7%, transparent);
+}
+@keyframes hero-monogram-float {
+  0%, 100% { transform: translate(3%, -50%); }
+  50% { transform: translate(1%, calc(-50% - 8px)); }
+}
+@keyframes hero-glow-breathe {
+  0%, 100% { opacity: 0.72; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes hero-flow-dash {
+  to { stroke-dashoffset: -180; }
+}
+.hero-main,
+.pipeline,
+.hero-bottom {
+  position: relative;
+  z-index: 1;
 }
 .availability {
   color: var(--muted);
@@ -1270,6 +1381,9 @@ html[data-theme="light"] .button-primary {
   margin-top: 10px;
   max-width: 430px;
   width: 100%;
+}
+.pipeline-frame {
+  filter: drop-shadow(0 24px 42px rgba(96, 61, 43, 0.12));
 }
 .pipeline-top {
   display: flex;
@@ -1493,6 +1607,14 @@ html[data-theme="light"] .button-primary {
     grid-template-columns: 1.2fr 1fr;
     gap: 30px;
   }
+  .hero-monogram {
+    right: -7%;
+    font-size: clamp(145px, 25vw, 230px);
+  }
+  .hero-flow-field {
+    inset-inline: 28% -6%;
+    width: 78%;
+  }
   h1 {
     font-size: 43px;
     letter-spacing: -1.8px;
@@ -1556,6 +1678,35 @@ html[data-theme="light"] .button-primary {
   .hero {
     display: block;
     padding-top: 43px;
+  }
+  .hero-visual-atmosphere {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 38%, rgba(0, 0, 0, 0.4) 55%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, transparent 38%, rgba(0, 0, 0, 0.4) 55%, #000 100%);
+  }
+  .hero-visual-atmosphere:before {
+    width: 620px;
+    right: -70%;
+    top: 30%;
+  }
+  .hero-monogram {
+    top: 73%;
+    right: -11%;
+    font-size: clamp(138px, 40vw, 210px);
+    opacity: 0.62;
+  }
+  .hero-flow-field {
+    inset: 35% -38% -5% 12%;
+    width: 130%;
+    height: 70%;
+    opacity: 0.72;
+  }
+  .hero-flow-path:nth-of-type(2),
+  .hero-flow-path:nth-of-type(4) {
+    display: none;
+  }
+  .hero-accent-disc {
+    right: 5%;
+    bottom: 11%;
   }
   .intro {
     font-size: 18px;
@@ -1637,5 +1788,8 @@ html[data-theme="light"] .button-primary {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+  .hero-flow-particle {
+    display: none;
   }
 }

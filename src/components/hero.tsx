@@ -1,6 +1,6 @@
 import { Github, Download, MapPin, ArrowUpRight, ArrowDown } from "lucide-react";
 import { LinkAction } from "./link-action";
-import { IntelligencePipeline } from "./intelligence-pipeline";
+import { CodeToProduct } from "./code-to-product";
 import { profile } from "@/data/portfolio";
 
 function LinkedInMark({ size = 22 }: { size?: number }) {
@@ -31,7 +31,7 @@ export function Hero() {
         <span><MapPin size={16} />{profile.location}</span>
       </div>
     </div>
-    <IntelligencePipeline />
+    <CodeToProduct />
     <div className="hero-bottom mono">
       <span>PYTHON &amp; GENAI DEVELOPER</span>
       <a href="#about">SCROLL TO EXPLORE <ArrowDown size={13} /></a>

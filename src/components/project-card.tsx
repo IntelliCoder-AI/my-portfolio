@@ -24,7 +24,7 @@ export function ProjectCard({ id, name, featured = false, children, details }: {
       aria-hidden={!open} inert={!open} initial={false}
       animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
       transition={{ duration: reduced ? 0 : motionTiming.smooth, ease: editorialEase }}>
-      <motion.div animate={{ y: reduced || open ? 0 : 8 }} transition={{ duration: reduced ? 0 : motionTiming.normal, ease: editorialEase }}>{details}</motion.div>
+      <motion.div animate={{ y: reduced || open ? 0 : 8 }} transition={{ duration: reduced ? 0 : motionTiming.normal, ease: editorialEase }}>{open ? details : null}</motion.div>
     </motion.div>
   </article>;
 }
