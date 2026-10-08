@@ -2,6 +2,8 @@
 
 Source code for my personal portfolio website, created to present my work in Python development, data engineering, Generative AI, RAG systems, AI agents, and backend application development.
 
+**Live portfolio:** [https://anurag-kumar-srivastava-portfolio.vercel.app/](https://anurag-kumar-srivastava-portfolio.vercel.app/)
+
 **Live portfolio:** [velvet-ripple-tjhw.here.now](https://velvet-ripple-tjhw.here.now/)
 
 ## Technologies
